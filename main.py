@@ -16,6 +16,8 @@
 # E. plot all 3 for N = {100, 500, 1000, 2000, 3000, ... } log scale and normal
 
 import numpy as np
+from jacobi import solve_jacobi
+from gauss import solve_gauss
 
 def fill_matrix(N, a1, a2, a3):
     A = np.zeros((N, N))
@@ -29,8 +31,17 @@ def fill_matrix(N, a1, a2, a3):
                 A[i][j] = a3
     return A
 
+def fill_b(N):
+    b = np.zeros(N)
+    for i in range(N):
+        b[i] = np.sin(i * (7 + 1))
+    return b
+
 def main():
-   return
+    A = fill_matrix(1241, 12, -1, -1)
+    b = fill_b(1241)
+    solve_jacobi(A, b)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    A = fill_matrix(20, 5, -1, -1)
+    main()
