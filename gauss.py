@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 def solve_gauss(A, b):
     max_iterations = 1000
@@ -22,15 +21,17 @@ def solve_gauss(A, b):
         inorm = np.linalg.norm(np.matmul(A, x) - b)
         r_norm[iterations] = inorm
 
-    print(iterations)
+    return r_norm, iterations
 
-    print(r_norm)
-    fig, ax = plt.subplots()
-    ax.plot(r_norm[:iterations])
-    ax.set_yscale('log')
-    ax.set_xlabel('Iterations')
-    ax.set_ylabel('Residual Norm')
-    ax.set_title('Gauss-Seidel Method Residual Norm')
-    plt.show()
-
-    return
+    # print(iterations)
+    #
+    # print(r_norm)
+    # fig, ax = plt.subplots()
+    # ax.plot(r_norm[:iterations])
+    # ax.set_yscale('log')
+    # ax.set_xlabel('Iterations')
+    # ax.set_ylabel('Residual Norm')
+    # ax.set_title('Gauss-Seidel Method Residual Norm')
+    # plt.show()
+    #
+    # return

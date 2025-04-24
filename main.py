@@ -10,12 +10,13 @@
 # b[n] = sin(n * (7 + 1))
 
 #TODO:
-# E. plot all 3 for N = {100, 500, 1000, 2000, 3000, ... } log scale and normal
+# E. plot tome for all 3 for N = {100, 500, 1000, 2000, 3000, ... } log scale and normal
 
 import numpy as np
 from jacobi import solve_jacobi
 from gauss import solve_gauss
 from direct import solve_direct
+import matplotlib.pyplot as plt
 
 def fill_matrix(N, a1, a2, a3):
     A = np.zeros((N, N))
@@ -35,14 +36,25 @@ def fill_b(N):
         b[i] = np.sin(i * (7 + 1))
     return b
 
+def plot_rnorm_log(rnorm, iterations, method_name):
+    fig, ax = plt.subplots()
+    ax.plot(rnorm[:iterations])
+    ax.set_yscale('log')
+    ax.set_xlabel('Iterations')
+    ax.set_ylabel('Residual Norm')
+    ax.set_title(f'{method_name} Method Residual Norm')
+    plt.show()
+
 def main():
     # A
     A = fill_matrix(1241, 12, -1, -1)
     b = fill_b(1241)
 
     # B + D
-    solve_jacobi(A, b)
-    solve_gauss(A, b)
+    rnorm, iterations = solve_jacobi(A, b)
+    plot_rnorm_log(rnorm, iterations, "Jacobi")
+    rnorm, iterations = solve_gauss(A, b)
+    plot_rnorm_log(rnorm, iterations, "Gauss-Seidel")
     solve_direct(A, b)
 
     # C
