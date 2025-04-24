@@ -10,14 +10,12 @@
 # b[n] = sin(n * (7 + 1))
 
 #TODO:
-# B. solve jacobi, gauss-seidel + r_norm plot log scale
-# C. a1 = 3, a2 = a3 = -1 + plot
-# D. direct LU + plot
 # E. plot all 3 for N = {100, 500, 1000, 2000, 3000, ... } log scale and normal
 
 import numpy as np
 from jacobi import solve_jacobi
 from gauss import solve_gauss
+from direct import solve_direct
 
 def fill_matrix(N, a1, a2, a3):
     A = np.zeros((N, N))
@@ -38,8 +36,17 @@ def fill_b(N):
     return b
 
 def main():
+    # A
     A = fill_matrix(1241, 12, -1, -1)
     b = fill_b(1241)
+
+    # B + D
+    solve_jacobi(A, b)
+    solve_gauss(A, b)
+    solve_direct(A, b)
+
+    # C
+    A = fill_matrix(1241, 3, -1, -1)
     solve_jacobi(A, b)
     solve_gauss(A, b)
 

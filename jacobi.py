@@ -22,7 +22,7 @@ def solve_jacobi(A, b):
     M = np.matmul(D, M)
     inorm = np.linalg.norm(np.matmul(A, x) - b)
     r_norm[iterations] = inorm
-    while iterations < max_iterations and inorm > diff:
+    while iterations < max_iterations - 1 and inorm > diff:
         iterations += 1
         x = np.matmul(M, x) + w
         inorm = np.linalg.norm(np.matmul(A, x) - b)
