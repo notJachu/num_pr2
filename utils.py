@@ -32,8 +32,40 @@ def plot_rnorm_log(rnorm, iterations, method_name):
 
 def plot_time_log(time_jacobi, time_gauss, time_direct, N):
 
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(N, time_jacobi, marker='o', label='Jacobi')
+    plt.plot(N, time_gauss, marker='s', label='Gauss-Seidel')
+    plt.plot(N, time_direct, marker='^', label='Direct')
+
+    plt.yscale('log')
+
+    plt.xlabel('Matrix Size (N)')
+    plt.ylabel('Computation Time (s)')
+    plt.title('Computation Time vs Matrix Size (Log Scale)')
+    plt.xticks(N, labels=[str(n) for n in N])
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
+
     return
 
 def plot_time_normal(time_jacobi, time_gauss, time_direct, N):
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(N, time_jacobi, marker='o', label='Jacobi')
+    plt.plot(N, time_gauss, marker='s', label='Gauss-Seidel')
+    plt.plot(N, time_direct, marker='^', label='Direct')
+
+
+    plt.xlabel('Matrix Size (N)')
+    plt.ylabel('Computation Time (s)')
+    plt.title('Computation Time vs Matrix Size (Normal Scale)')
+    plt.xticks(N, labels=[str(n) for n in N])
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
 
     return

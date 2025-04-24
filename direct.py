@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import copy
 
 def solve_direct(A, b):
@@ -17,6 +16,6 @@ def solve_direct(A, b):
 
     inorm = np.linalg.norm(np.matmul(A, x) - b)
 
-    print(inorm)
+    #print(inorm)
 
-    return
+    return inorm

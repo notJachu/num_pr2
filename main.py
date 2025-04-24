@@ -9,16 +9,17 @@
 # b = [N]
 # b[n] = sin(n * (7 + 1))
 
-#TODO:
-# E. plot tome for all 3 for N = {100, 500, 1000, 2000, 3000, ... } log scale and normal
-
-import numpy as np
 from jacobi import solve_jacobi
 from gauss import solve_gauss
 from direct import solve_direct
 from utils import fill_matrix, fill_b, plot_rnorm_log
+from time_benchmark import test_times
 
 def main():
+
+    N = [100, 200, 300, 400, 500]
+    test_times(N)
+
     # A
     A = fill_matrix(1241, 12, -1, -1)
     b = fill_b(1241)

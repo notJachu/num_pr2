@@ -30,14 +30,3 @@ def solve_jacobi(A, b):
     
     return r_norm, iterations
 
-    # print(iterations)
-    # print(r_norm)
-    # fig, ax = plt.subplots()
-    # ax.plot(r_norm[:iterations])
-    # ax.set_yscale('log')
-    # ax.set_xlabel('Iterations')
-    # ax.set_ylabel('Residual Norm')
-    # ax.set_title('Jacobi Method Residual Norm')
-    # plt.show()
-    #
-    # return
