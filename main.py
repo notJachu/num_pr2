@@ -41,6 +41,7 @@ def main():
     A = fill_matrix(1241, 12, -1, -1)
     b = fill_b(1241)
     solve_jacobi(A, b)
+    solve_gauss(A, b)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
