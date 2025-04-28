@@ -17,24 +17,30 @@ from time_benchmark import test_times
 
 def main():
 
-    N = [100, 200, 300, 400, 500]
-    test_times(N)
 
     # A
     A = fill_matrix(1241, 12, -1, -1)
     b = fill_b(1241)
 
     # B + D
-    rnorm, iterations = solve_jacobi(A, b)
-    plot_rnorm_log(rnorm, iterations, "Jacobi")
-    rnorm, iterations = solve_gauss(A, b)
-    plot_rnorm_log(rnorm, iterations, "Gauss-Seidel")
-    solve_direct(A, b)
+    # rnorm, iterations = solve_jacobi(A, b)
+    # plot_rnorm_log(rnorm, iterations, "Jacobi")
+    # rnorm, iterations = solve_gauss(A, b)
+    # plot_rnorm_log(rnorm, iterations, "Gauss-Seidel")
+    # inorm = solve_direct(A, b)
+    # print(inorm)
 
     # C
-    A = fill_matrix(1241, 3, -1, -1)
-    solve_jacobi(A, b)
-    solve_gauss(A, b)
+    # A = fill_matrix(1241, 3, -1, -1)
+    # rnorm, iterations = solve_jacobi(A, b)
+    # plot_rnorm_log(rnorm, iterations, "Jacobi")
+    # rnorm, iterations = solve_gauss(A, b)
+    # plot_rnorm_log(rnorm, iterations, "Gauss-Seidel")
+
+    # E
+    N = [100, 200, 500, 1000, 2000, 3000, 5000]
+    test_times(N)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
